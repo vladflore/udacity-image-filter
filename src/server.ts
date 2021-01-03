@@ -12,7 +12,7 @@ import { deleteLocalFiles, filterImageFromURL } from './util/util';
 
     // GET endpoint: /filteredimage
     // Example: /filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg
-    app.get('/filteredimage', async (req, res) => {
+    app.get('/filteredimage', async (req: express.Request, res: express.Response) => {
         const imageUrl = req.query.image_url;
         if (!imageUrl) {
             return res.status(400).send({ message: 'Image URL is missing, provide image_url query parameter.' })
@@ -24,7 +24,7 @@ import { deleteLocalFiles, filterImageFromURL } from './util/util';
         });
     });
 
-    app.get('/', async (req, res) => {
+    app.get('/', async (req: express.Request, res: express.Response) => {
         res.send('try GET /filteredimage?image_url=&lt;some-public-image-url&gt;')
     });
 
